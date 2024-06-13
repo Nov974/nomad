@@ -1,0 +1,173 @@
+/* Ajoutez ce CSS à votre fichier styles.css existant */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('https://www.example.com/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    perspective: 1000px;
+}
+
+.carousels {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    transform-style: preserve-3d;
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.carousel:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    backface-visibility: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+}
+
+.slide:nth-child(2) {
+    background-color: #2196F3;
+}
+
+.slide:nth-child(3) {
+    background-color: #FF9800;
+}
+
+.slide-me {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    animation: slideMeAnimation 1s infinite;
+}
+
+@keyframes slideMeAnimation {
+    0%, 100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateX(10px);
+    }
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: #000;
+    width: 100%;
+}
+
+label, input, textarea {
+    margin: 5px 0;
+}
+
+input, textarea {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: calc(100% - 12px);
+}
+
+button[type="button"] {
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button[type="button"]:hover {
+    background-color: #45a049;
+}
+
+/* Styles responsives pour les petits écrans */
+@media (max-width: 768px) {
+    .slide {
+        padding: 10px;
+    }
+    
+    form {
+        width: 90%;
+    }
+
+    input, textarea {
+        width: calc(100% - 10px);
+    }
+
+    button {
+        width: 30px;
+        height: 30px;
+    }
+
+    button.prev, button.next {
+        top: 80%;
+    }
+}
